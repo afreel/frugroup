@@ -22,7 +22,7 @@
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="20dp"
-        android:text="New Game"
+        android:text="@string/title_activity_new_game"
         android:onClick="onNewGame" />
 
     <Button
@@ -33,7 +33,7 @@
         android:layout_alignLeft="@+id/button2"
         android:layout_below="@+id/button2"
         android:layout_marginTop="20dp"
-        android:text="Existing Game"
+        android:text="@string/title_activity_game"
         android:onClick="onGame" />
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_alignLeft="@+id/button3"
         android:layout_below="@+id/button3"
         android:layout_marginTop="15dp"
-        android:text="New Goal"
+        android:text="@string/title_activity_new_goal"
         android:onClick="onNewGoal" />
 
     <Button
@@ -55,7 +55,7 @@
         android:layout_alignLeft="@+id/button4"
         android:layout_below="@+id/button4"
         android:layout_marginTop="18dp"
-        android:text="Existing Goal"
+        android:text="@string/title_activity_goal"
         android:onClick="onGoal" />
 
     <Button
@@ -66,7 +66,7 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
         android:layout_marginTop="24dp"
-        android:text="New Transaction"
+        android:text="@string/title_activity_new_transaction"
         android:onClick="onTransaction" />
 
 </RelativeLayout>
