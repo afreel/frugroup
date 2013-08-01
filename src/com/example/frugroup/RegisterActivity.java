@@ -1,8 +1,11 @@
 package com.example.frugroup;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class RegisterActivity extends Activity {
 
@@ -10,6 +13,13 @@ public class RegisterActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
+		
+		UserData info = new UserData(this);
+		info.open();
+		String data = info.getData();
+		info.close();
+		
+		Log.d("Data", data);
 	}
 
 	@Override
