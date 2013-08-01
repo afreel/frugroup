@@ -8,31 +8,46 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".LoginActivity" >
 
-    <EditText android:id="@+id/edit_message"
+    <EditText
+        android:id="@+id/edit_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_text_hint" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="@string/username_hint" >
 
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_user"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/password_hint" >
+
+        <requestFocus />
+    </EditText>
+    
     <Button
         android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="180dp"
+		android:layout_centerHorizontal="true"
+        android:layout_below="@id/edit_pass"
+        android:layout_marginTop="15dp"
         android:onClick="onLogin"
         android:text="@string/title_activity_login" />
 
     <Button
         android:id="@+id/button2"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignRight="@+id/button1"
-        android:layout_alignTop="@+id/button1"
-        android:layout_marginTop="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button1"
         android:onClick="onRegister"
         android:text="@string/title_activity_register" />
 
