@@ -9,7 +9,7 @@
     tools:context=".HomeActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
@@ -19,8 +19,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignRight="@+id/title"
+        android:layout_below="@+id/title"
         android:layout_marginTop="20dp"
         android:text="@string/title_activity_new_game"
         android:onClick="onNewGame" />
