@@ -34,5 +34,6 @@
     <string name="digit_9">9</string>
     <string name="digit_0">0</string>
     <string name="decimal_point">.</string>
+    <string name="save">Save</string>
 
 </resources>
