@@ -9,7 +9,7 @@
     tools:context=".LoginActivity" >
 
     <EditText
-        android:id="@+id/edit_user"
+        android:id="@+id/edit_user_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -21,10 +21,10 @@
     </EditText>
     
     <EditText
-        android:id="@+id/edit_pass"
+        android:id="@+id/edit_pass_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit_user"
+        android:layout_below="@id/edit_user_login"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/password_hint" >
@@ -33,22 +33,22 @@
     </EditText>
     
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button_login"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true"
-        android:layout_below="@id/edit_pass"
+        android:layout_below="@id/edit_pass_login"
         android:layout_marginTop="15dp"
         android:onClick="onLogin"
         android:text="@string/title_activity_login" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_login_register"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/button1"
-        android:onClick="onRegister"
+        android:layout_below="@id/button_login"
+        android:onClick="onLoginRegister"
         android:text="@string/title_activity_register" />
 
 </RelativeLayout>

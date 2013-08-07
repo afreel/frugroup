@@ -14,5 +14,11 @@
     <string name="title_activity_register">Register</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
+    <string name="trans_name_hint">Item Name</string>
+    <string name="trans_cost_hint">Item Cost</string>
+    <string name="trans_tag_hint">Tag</string>
+    <string name="button_submit">Submit</string>
+    <string name="goal_name_hint">Goal Name</string>
+    <string name="goal_cost_hint">Goal Cost</string>
 
 </resources>

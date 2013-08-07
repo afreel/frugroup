@@ -11,6 +11,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_activity_register" />
+
+	<EditText
+        android:id="@+id/edit_user_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="@string/username_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_pass_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_user_register"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/password_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+        android:layout_below="@id/edit_pass_register"
+        android:layout_marginTop="15dp"
+        android:onClick="onRegister"
+        android:text="@string/title_activity_register" />
 
 </RelativeLayout>

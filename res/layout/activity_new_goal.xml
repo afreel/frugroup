@@ -11,6 +11,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="New Goal" />
+    
+    <EditText
+        android:id="@+id/edit_goal_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="@string/goal_name_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_goal_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_goal_description"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/goal_cost_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/button_goal_confirm"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edit_goal_cost"
+        android:layout_marginTop="40dp"
+        android:onClick="onSubmitGoal"
+        android:text="@string/button_submit" />
 
 </RelativeLayout>

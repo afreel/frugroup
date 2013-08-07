@@ -11,6 +11,53 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Transaction" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_activity_new_transaction" />
+    
+    <EditText
+        android:id="@+id/edit_trans_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="@string/trans_name_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_trans_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trans_description"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/trans_cost_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_trans_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_trans_cost"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/trans_tag_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/button_trans_confirm"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edit_trans_tag"
+        android:layout_marginTop="40dp"
+        android:onClick="onSubmitPurchase"
+        android:text="@string/button_submit" />
 
 </RelativeLayout>
