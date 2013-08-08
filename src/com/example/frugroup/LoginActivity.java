@@ -29,19 +29,21 @@ public class LoginActivity extends Activity{
     }
     
     public void onLogin(View view) {
-//    	String userName = textUser.getText().toString();
-//    	String userPass = textPass.getText().toString();
-//    	UserData entry = new UserData(LoginActivity.this);
-//    	entry.open();
-//    	//WRITE METHOD in UserData to validate Login credentials
-//    	entry.close();
-//    	
-//    	Bundle localUserBundle = new Bundle();
-//    	localUserBundle.putString("localUser", userName);
-//    	
-    	Intent intentRegister = new Intent(this, HomeActivity.class);
-//    	intentRegister.putExtras(localUserBundle);
-    	startActivity(intentRegister);
+    	String userName = textUser.getText().toString();
+    	String userPass = textPass.getText().toString();
+    	UserData entry = new UserData(LoginActivity.this);
+    	entry.open();
+    	boolean valid = entry.validateLogin(userName, userPass);
+    	if (valid){
+    		entry.close();
+        	
+        	Bundle localUserBundle = new Bundle();
+        	localUserBundle.putString("localUser", userName);
+        	
+        	Intent intentRegister = new Intent(this, HomeActivity.class);
+        	intentRegister.putExtras(localUserBundle);
+        	startActivity(intentRegister);
+    	} 	
     }
     
     public void onLoginRegister(View view) {

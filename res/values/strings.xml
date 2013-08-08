@@ -18,7 +18,11 @@
     <string name="trans_cost_hint">Item Cost</string>
     <string name="trans_tag_hint">Tag</string>
     <string name="button_submit">Submit</string>
+    <string name="button_create">Create</string>
     <string name="goal_name_hint">Goal Name</string>
     <string name="goal_cost_hint">Goal Cost</string>
+    <string name="game_name_hint">Game Name</string>
+    <string name="user_game_budget_hint">Game Budget</string>
+    <string name="user_game_tag_hint">Game Tag</string>
 
 </resources>

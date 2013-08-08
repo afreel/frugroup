@@ -1,5 +1,6 @@
 package com.example.frugroup;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.ContentValues;
@@ -22,6 +23,7 @@ public class UserData {
 	public static final String KEY_PURCHASE_TIME = "purchase_time";
 	
 	public static final String KEY_GAME_ID = "game_id";
+	public static final String KEY_GAME_NAME = "game_name";
 	public static final String KEY_GAME_TIME = "game_time";
 	
 	public static final String KEY_USER_GAME_ID = "user_game_id";
@@ -40,7 +42,7 @@ public class UserData {
 	public static final String DATABASE_TABLE_USER_GAME = "UserGameTable";
 	public static final String DATABASE_TABLE_GROUP_GAME = "GroupGameTable";
 	public static final String DATABASE_TABLE_GOAL = "GoalTable";
-	public static final int DATABASE_VERSION = 7;
+	public static final int DATABASE_VERSION = 10;
 	
 	private DbHelper ourHelper;
 	private final Context ourContext;
@@ -71,7 +73,7 @@ public class UserData {
 			);
 			
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE_USER_GAME + " (" +
-					KEY_USER_GAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+					KEY_GAME_ID + " INTEGER PRIMARY KEY, " +
 					KEY_USER_NAME + " TEXT NOT NULL, " +
 					KEY_USER_GAME_BUDGET + " DOUBLE NOT NULL, " +
 					KEY_USER_GAME_BALANCE + " DOUBLE NOT NULL, " +
@@ -81,7 +83,8 @@ public class UserData {
 			
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE_GROUP_GAME + " (" +
 					KEY_GAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-					KEY_GAME_TIME + " TEXT NOT NULL);"
+					KEY_GAME_NAME + " TEXT NOT NULL, " +
+					KEY_GAME_TIME + " DATETIME NOT NULL);"
 			);
 			
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE_GOAL + " (" +
@@ -138,13 +141,25 @@ public class UserData {
 		return ourDatabase.insert(DATABASE_TABLE_PURCHASE, null, cv);
 	}
 	
-//	public long createGameEntry(String name, String game) {
-//		// TODO Auto-generated method stub
-//		ContentValues cv = new ContentValues();
-//		cv.put(KEY_NAME, name);
-//		cv.put(KEY_GAME, game);
-//		return ourDatabase.insert(DATABASE_TABLE_GAME, null, cv);
-//	}
+	public long createGroupGameEntry(String name, Date date) {
+		// TODO Auto-generated method stub
+		ContentValues cv = new ContentValues();
+		cv.put(KEY_GAME_NAME, name);
+		cv.put(KEY_GAME_TIME, date.toString()); //NOTE: converted from type Date --> String
+		return ourDatabase.insert(DATABASE_TABLE_GROUP_GAME, null, cv);
+	}
+	
+	public long createUserGameEntry(String user, long gameId, Double budget, String tag, boolean active) {
+		// TODO Auto-generated method stub
+		ContentValues cv = new ContentValues();
+		cv.put(KEY_USER_NAME, user);
+		cv.put(KEY_GAME_ID, gameId);
+		cv.put(KEY_USER_GAME_BUDGET, budget);
+		cv.put(KEY_USER_GAME_BALANCE, 0.00);
+		cv.put(KEY_USER_GAME_TAG, tag);
+		cv.put(KEY_USER_GAME_BOOL, active);
+		return ourDatabase.insert(DATABASE_TABLE_USER_GAME, null, cv);
+	}
 	
 	public long createGoalEntry(String desc, Double cost, String user) {
 		// TODO Auto-generated method stub
@@ -211,6 +226,48 @@ public class UserData {
 		return result;
 	}
 	
+	public String getGroupGameData() {
+		// TODO Auto-generated method stub
+		String[] columns = new String[]{ KEY_GAME_ID, KEY_GAME_NAME, KEY_GAME_TIME};
+		Cursor c = ourDatabase.query(DATABASE_TABLE_GROUP_GAME, columns, null, null, null, null, null);
+		String result = "";
+		
+		int iGameId = c.getColumnIndex(KEY_GAME_ID);
+		int iName = c.getColumnIndex(KEY_GAME_NAME);
+		int iTime = c.getColumnIndex(KEY_GAME_TIME);
+		
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			result = result + c.getString(iGameId) + " " + c.getString(iName) + " " + c.getString(iTime) + "\n";
+		}
+		
+		return result;
+	}
+	
+	public ArrayList<String> getUserGameData(String userName) {
+		// TODO Auto-generated method stub
+		String[] columns = new String[]{ KEY_GAME_ID, KEY_USER_NAME, KEY_USER_GAME_BUDGET, KEY_USER_GAME_BALANCE, KEY_USER_GAME_TAG, KEY_USER_GAME_BOOL};
+		Cursor c = ourDatabase.query(DATABASE_TABLE_USER_GAME, columns, null, null, null, null, null);
+		ArrayList<String> results = new ArrayList<String>();
+		String result = "";
+		
+		int iGameId = c.getColumnIndex(KEY_GAME_ID);
+		int iUser = c.getColumnIndex(KEY_USER_NAME);
+		int iBudget = c.getColumnIndex(KEY_USER_GAME_BUDGET);
+		int iBalance = c.getColumnIndex(KEY_USER_GAME_BALANCE);
+		int iTag = c.getColumnIndex(KEY_USER_GAME_TAG);
+		int iBool = c.getColumnIndex(KEY_USER_GAME_BOOL);
+		
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			if (userName.contentEquals(c.getString(iUser))){
+				result = c.getString(iGameId) + " : " + c.getString(iUser) + " : " + c.getString(iBalance) + "/" + c.getString(iBudget)
+						+ " : " + c.getString(iTag) + " : " + c.getString(iBool);
+				results.add(result);
+			}
+		}
+		
+		return results;
+	}
+	
 	public boolean validateRegister(String userName) {
 		String[] columns = new String[]{ KEY_USER_NAME, KEY_USER_PASS};
 		Cursor c = ourDatabase.query(DATABASE_TABLE_LOGIN, columns, null, null, null, null, null);
@@ -221,13 +278,33 @@ public class UserData {
 		int iPass = c.getColumnIndex(KEY_USER_PASS);
 		
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-			Log.d("Data", c.getString(iUser));
-			Log.d("Data", userName);
 			if (userName.contentEquals(c.getString(iUser))){
-				Log.d("Data", "HI");
 				errorMessage = "That Username is taken.";
 				validity = false;
 				break;
+			}
+		}
+		
+		Log.d("Data", errorMessage);
+		return validity;
+	}
+	
+	public boolean validateLogin(String userName, String userPass) {
+		String[] columns = new String[]{ KEY_USER_NAME, KEY_USER_PASS};
+		Cursor c = ourDatabase.query(DATABASE_TABLE_LOGIN, columns, null, null, null, null, null);
+		boolean validity = false;
+		String errorMessage = "Invalid credentials";
+		
+		int iUser = c.getColumnIndex(KEY_USER_NAME);
+		int iPass = c.getColumnIndex(KEY_USER_PASS);
+		
+		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+			if (userName.contentEquals(c.getString(iUser))){
+				if (userPass.contentEquals(c.getString(iPass))){
+					errorMessage = "Valid credentials. Enjoy!";
+					validity = true;
+					break;
+				}
 			}
 		}
 		
