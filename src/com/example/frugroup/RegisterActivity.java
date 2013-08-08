@@ -19,8 +19,8 @@ public class RegisterActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.landing_screen);
 		
-		textUser = (EditText) findViewById(R.id.);
-        textPass = (EditText) findViewById(R.id);
+		textUser = (EditText) findViewById(R.id.nameHolder);
+        textPass = (EditText) findViewById(R.id.passwordHolder);
 	}
 
 	@Override

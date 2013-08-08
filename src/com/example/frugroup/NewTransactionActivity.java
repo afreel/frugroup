@@ -19,11 +19,11 @@ public class NewTransactionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_transaction);
-		transName = (EditText) findViewById(R.id.enterDescription);
-        transCost = (EditText) findViewById(R.id.enter_cost);
-        transTag = (EditText) findViewById(R.id);
+		transName = (EditText) findViewById(R.id.descriptionHolder);
+        transCost = (EditText) findViewById(R.id.cost);
+       // transTag = (EditText) findViewById(R.id);
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
