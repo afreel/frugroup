@@ -14,12 +14,13 @@
         android:orientation="vertical" >
 
         <RelativeLayout
+            android:id="@+id/costEntry"
             style="@style/FullWidthBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/cost_prompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -30,8 +31,8 @@
             <include
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/textView1"
-                android:layout_toRightOf="@id/textView1"
+                android:layout_alignTop="@id/cost_prompt"
+                android:layout_toRightOf="@id/cost_prompt"
                 layout="@layout/enter_cost" />
 
         </RelativeLayout>
@@ -44,14 +45,14 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tag_prompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/prompt_tag"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <HorizontalScrollView
-                android:id="@+id/horizontalScrollView1"
+                android:id="@+id/tagContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
@@ -70,7 +71,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/descriptionPrompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -79,10 +80,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/descriptionHolder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView4"
+                android:layout_below="@id/descriptionPrompt"
                 android:ems="10"
                 android:inputType="text" />
 
@@ -90,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/editText2"
-                android:layout_toRightOf="@id/editText2"
+                android:layout_toRightOf="@id/descriptionHolder"
                 layout="@layout/take_picture" />
 
         </RelativeLayout>

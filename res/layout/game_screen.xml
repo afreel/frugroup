@@ -4,6 +4,7 @@
     android:layout_height="match_parent" >
 
     <LinearLayout
+        android:id="@+id/form"
         style="@style/PaddedScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,20 +14,21 @@
         android:orientation="vertical" >
 
         <LinearLayout
+            android:id="@+id/enterName"
             style="@style/FullWidthBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/namePrompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Team name:"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <EditText
-                android:id="@+id/editText1"
+                android:id="@+id/nameHolder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10" >
@@ -37,20 +39,21 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/chooseTags"
             style="@style/FullWidthBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tagPrompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="I want to track:"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <HorizontalScrollView
-                android:id="@+id/horizontalScrollView1"
+                android:id="@+id/tagContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
@@ -60,7 +63,7 @@
                     android:orientation="horizontal" >
 
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/addTagButton"
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -72,31 +75,38 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/chooseMembers"
             style="@style/FullWidthBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/membersPrompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Team members:"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <LinearLayout
+            <ScrollView
+                android:id="@+id/friendsContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_height="wrap_content" >
 
-                <Button
-                    android:id="@+id/button2"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="+ Invite friend" />
+                    android:orientation="vertical" >
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/addFriendButton"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+ Invite friend" />
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
 

@@ -9,17 +9,18 @@
         style="@style/FullWidthBlock" >
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/cost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal" />
 
         <TableLayout
+            android:id="@+id/numericKeypad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@id/editText1"
-            android:layout_below="@id/editText1" >
+            android:layout_alignRight="@id/cost"
+            android:layout_below="@id/cost" >
 
             <TableRow
                 android:id="@+id/tableRow1"
@@ -27,7 +28,7 @@
                 android:layout_height="wrap_content" >
 
                 <Button
-                    android:id="@+id/Button02"
+                    android:id="@+id/1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/digit_1" />

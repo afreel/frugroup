@@ -30,19 +30,25 @@ public class LoginActivity extends Activity{
     }
     
     public void onLogin(View view) {
-    	Intent intent = new Intent(this, HomeActivity.class);
-    	startActivity(intent);
+    	
+    	String userName = textUser.getText().toString();
+    	String userPass = textPass.getText().toString();
+    	UserData entry = new UserData(LoginActivity.this);
+    	entry.open();
+    	//WRITE METHOD in UserData to validate Login credentials
+    	entry.close();
+    	
+    	Bundle localUserBundle = new Bundle();
+    	localUserBundle.putString("localUser", userName);
+    	
+    	Intent intentRegister = new Intent(this, HomeActivity.class);
+    	intentRegister.putExtras(localUserBundle);
+    	startActivity(intentRegister);
+    	
     }
     
     public void onRegister(View view) {
-    	String name = textUser.getText().toString();
-    	String pass = textPass.getText().toString();
-    	Log.d("Before","-----------------------------------------");
-    	UserData entry = new UserData(LoginActivity.this);
-    	entry.open();
-    	entry.createEntry(name, pass);
-    	entry.close();
-    	Log.d("AFTER","000000000000000000000000000000000000000000000");
+    	
     	Intent intent = new Intent(this, RegisterActivity.class);
     	startActivity(intent);
     }
