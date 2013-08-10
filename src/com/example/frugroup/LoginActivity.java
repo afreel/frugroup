@@ -36,14 +36,19 @@ public class LoginActivity extends Activity{
     	UserData entry = new UserData(LoginActivity.this);
     	entry.open();
     	//WRITE METHOD in UserData to validate Login credentials
+    	boolean valid = entry.validateLogin(userName, userPass);
     	entry.close();
     	
+    	if(valid)
+    	{
+    	entry.close();
     	Bundle localUserBundle = new Bundle();
     	localUserBundle.putString("localUser", userName);
     	
     	Intent intentRegister = new Intent(this, HomeActivity.class);
     	intentRegister.putExtras(localUserBundle);
     	startActivity(intentRegister);
+    	}
     	
     }
     

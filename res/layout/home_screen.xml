@@ -7,6 +7,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity" >
+    
+     <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
 
     <Button
         android:id="@+id/button5"
@@ -20,35 +28,13 @@
         android:text="@string/title_activity_new_transaction" />
 
     <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button5"
-        android:layout_alignLeft="@+id/button5"
-        android:layout_marginBottom="18dp"
-        android:onClick="onGoal"
-        android:text="@string/title_activity_goal" />
-
-    <Button
-        android:id="@+id/button4"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="18dp"
-        android:onClick="onNewGoal"
-        android:text="@string/title_activity_new_goal" />
-
-    <Button
         android:id="@+id/button2"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_marginBottom="18dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginTop="43dp"
         android:onClick="onNewGame"
         android:text="@string/title_activity_new_game" />
 
@@ -57,10 +43,32 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button4"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_marginBottom="14dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="38dp"
         android:onClick="onGame"
         android:text="@string/title_activity_game" />
+
+    <Button
+        android:id="@+id/button4"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="33dp"
+        android:onClick="onNewGoal"
+        android:text="@string/title_activity_new_goal" />
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="31dp"
+        android:onClick="onGoal"
+        android:text="@string/title_activity_goal" />
 
 </RelativeLayout>

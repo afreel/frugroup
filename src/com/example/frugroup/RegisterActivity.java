@@ -21,6 +21,8 @@ public class RegisterActivity extends Activity {
 		
 		textUser = (EditText) findViewById(R.id.nameHolder);
         textPass = (EditText) findViewById(R.id.passwordHolder);
+        
+        
 	}
 
 	@Override

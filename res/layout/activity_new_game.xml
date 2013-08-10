@@ -11,6 +11,52 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Game" />
+        android:text="@string/title_activity_new_game" />
+    
+    <EditText
+        android:id="@+id/edit_game_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="game_name_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_user_game_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_game_description"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="user_game_budget_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/edit_game_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_user_game_budget"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="user_game_tag_hint" >
+
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/button_user_game_confirm"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edit_game_tag"
+        android:layout_marginTop="40dp"
+        android:onClick="onSubmitUserGame"
+        android:text="button_create" />
 
 </RelativeLayout>
