@@ -8,65 +8,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity" >
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button5"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/title"
-        android:layout_below="@+id/title"
-        android:layout_marginTop="20dp"
-        android:text="@string/title_activity_new_game"
-        android:onClick="onNewGame" />
-
-    <Button
-        android:id="@+id/button3"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_below="@+id/button2"
-        android:layout_marginTop="20dp"
-        android:text="@string/title_activity_game"
-        android:onClick="onGame" />
-
-    <Button
-        android:id="@+id/button4"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_below="@+id/button3"
-        android:layout_marginTop="15dp"
-        android:text="@string/title_activity_new_goal"
-        android:onClick="onNewGoal" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="18dp"
+        android:onClick="onTransaction"
+        android:text="@string/title_activity_new_transaction" />
 
     <Button
         android:id="@+id/button1"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_below="@+id/button4"
-        android:layout_marginTop="18dp"
-        android:text="@string/title_activity_goal"
-        android:onClick="onGoal" />
+        android:layout_above="@+id/button5"
+        android:layout_alignLeft="@+id/button5"
+        android:layout_marginBottom="18dp"
+        android:onClick="onGoal"
+        android:text="@string/title_activity_goal" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button4"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="24dp"
-        android:text="@string/title_activity_new_transaction"
-        android:onClick="onTransaction" />
+        android:layout_above="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="18dp"
+        android:onClick="onNewGoal"
+        android:text="@string/title_activity_new_goal" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button3"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_marginBottom="18dp"
+        android:onClick="onNewGame"
+        android:text="@string/title_activity_new_game" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button4"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_marginBottom="14dp"
+        android:onClick="onGame"
+        android:text="@string/title_activity_game" />
 
 </RelativeLayout>
